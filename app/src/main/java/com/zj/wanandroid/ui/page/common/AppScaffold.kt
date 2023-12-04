@@ -56,6 +56,7 @@ fun AppScaffold() {
             }
         },
         content = {
+            it
             var homeIndex = remember { 0 }
             var categoryIndex = remember { 0 }
 

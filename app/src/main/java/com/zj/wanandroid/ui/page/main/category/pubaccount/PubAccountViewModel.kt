@@ -1,6 +1,7 @@
 package com.zj.wanandroid.ui.page.main.category.pubaccount
 
 import androidx.compose.foundation.lazy.LazyListState
+import androidx.compose.foundation.lazy.grid.LazyGridState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
@@ -54,7 +55,7 @@ class PubAccountViewModel @Inject constructor(
 data class PubAccountViewState(
     val dataList: List<ParentBean> = emptyList(),
     val pageState: PageState = PageState.Loading,
-    val listState: LazyListState = LazyListState()
+    val listState: LazyGridState = LazyGridState()
 ) {
     val size = dataList.size
 }

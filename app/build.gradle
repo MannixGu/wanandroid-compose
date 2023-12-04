@@ -7,13 +7,16 @@ plugins {
     id "androidx.navigation.safeargs.kotlin"
 }
 
+
+kapt {  correctErrorTypes = true }
+
 android {
-    compileSdk 31
+    compileSdk 34
 
     defaultConfig {
         applicationId "com.zj.wanandroid"
         minSdk 21
-        targetSdk 31
+        targetSdk 34
         versionCode 1
         versionName "1.0"
 
@@ -33,10 +36,10 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-    kotlinOptions {
-        jvmTarget = '1.8'
-        useIR = true
-    }
+//    kotlinOptions {
+//        jvmTarget = '1.8'
+//        useIR = true
+//    }
     buildFeatures {
         compose true
     }
@@ -66,7 +69,7 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
     androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_version"
     debugImplementation "androidx.compose.ui:ui-tooling:$compose_version"
-    implementation "androidx.navigation:navigation-compose:2.4.0-beta02"
+    implementation "androidx.navigation:navigation-compose:$nav_version"
 
     /** accompanist辅助插件 */
     implementation "com.google.accompanist:accompanist-insets:$accompanistVersion"
@@ -87,10 +90,13 @@ dependencies {
 
     //hilt inject framework
     implementation "com.google.dagger:hilt-android:$hiltVersion"
-    kapt "com.google.dagger:hilt-compiler:$hiltVersion"
+    kapt "com.google.dagger:hilt-android-compiler:$hiltVersion"
     implementation "androidx.hilt:hilt-navigation-compose:$hiltComposeVersion"
-    implementation "androidx.hilt:hilt-lifecycle-viewmodel:$hiltComposeVersion"
-    kapt "androidx.hilt:hilt-compiler:$hiltCompilerVersion"
+    //when using kotlin
+    kapt "androidx.hilt:hilt-compiler:$hiltComposeVersion"
+    //when using java
+//    annotationProcessor "androidx.hilt:hilt-compiler:$hiltComposeVersion"
+//    implementation "androidx.hilt:hilt-lifecycle-viewmodel:$hiltComposeVersion"
 
     //http request
     implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
